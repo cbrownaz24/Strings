@@ -68,7 +68,6 @@ char *Str_concat(char pcDest[], const char pcSrc[]) {
   assert(pcDest != NULL);
   assert(pcSrc != NULL);
 
-
   uDestLen = Str_getLength(pcDest);
   uSrcLen = Str_getLength(pcSrc);
 
@@ -97,9 +96,9 @@ int Str_compare(const char s1[], const char s2[]) {
 
   i = 0; /* Start at the 0th index of both strings. */
 
-  /* Conitnue comparing strings until null terminating character found. 
+  /* Continue comparing strings until null terminating character found. 
   This is the exit condition for strings that are the same, or one is 
-  the substring of the other.*/
+  the substring of the other. */
   while (s1[i] != '\0' && s2[i] != '\0') {
     /* While comparing, if two characters are different, return the 
     unsigned integer difference between s1's character and s2's 
