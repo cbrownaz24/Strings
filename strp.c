@@ -1,5 +1,11 @@
+/*--------------------------------------------------------------------*/
+/* strp.c                                                             */
+/* Author: Connor Brown                                               */
+/*--------------------------------------------------------------------*/
 #include "str.h"
 #include <assert.h>
+
+/*--------------------------------------------------------------------*/
 
 size_t Str_getLength(const char *pcSrc) {
     const char *pcEnd;
@@ -14,6 +20,8 @@ size_t Str_getLength(const char *pcSrc) {
     
     return (size_t)(pcEnd - pcSrc);
 }
+
+/*--------------------------------------------------------------------*/
 
 char *Str_copy(char *pcDest, const char *pcSrc) {
     char *pcTemp;
@@ -35,6 +43,8 @@ char *Str_copy(char *pcDest, const char *pcSrc) {
 
     return pcDest;
 }
+
+/*--------------------------------------------------------------------*/
 
 char *Str_concat(char *pcDest, const char *pcSrc) {
     char *pcTemp;
@@ -58,6 +68,8 @@ char *Str_concat(char *pcDest, const char *pcSrc) {
     return pcDest;
 }
 
+/*--------------------------------------------------------------------*/
+
 int Str_compare(const char *s1, const char *s2) {
     assert(s1 != NULL);
     assert(s2 != NULL);
@@ -72,6 +84,8 @@ int Str_compare(const char *s1, const char *s2) {
 
     return (int) *s1 - (int) *s2;
 }
+
+/*--------------------------------------------------------------------*/
 
 char *Str_search(const char *pcHaystack, const char *pcNeedle) {
     assert(pcHaystack != NULL);
