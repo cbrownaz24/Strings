@@ -20,7 +20,14 @@
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
-   size_t counter, uFromLen;
+   /* Increment variable to track the number of search hits for finding 
+   pcFrom in pcLine. */
+   size_t counter;
+
+   /* Stores the length of pcFrom to skip that many elements ahead when 
+   printing the updated pcLine. This effectively removes pcFrom from the
+   printed output of pcLine. */
+   size_t uFromLen;
 
    assert(pcLine != NULL);
    assert(pcFrom != NULL);
@@ -29,17 +36,33 @@ static size_t replaceAndWrite(const char *pcLine,
    uFromLen = Str_getLength(pcFrom);
    counter = 0;
 
+   /* If theres an empty string to replace, don't do anything and
+   just print pcLine. Return counter = 0 as the number of 
+   replacements. */
    if (uFromLen == 0) {
       printf("%s", pcLine);
       return counter;
    }
 
+   /* Continue to traverse pcLine until end of line. */
    while (*pcLine != '\0') {
+      /* Find the next occurance of pcFrom in pcLine. */
       char *searchHit = Str_search(pcLine, pcFrom);
+
+      /* Traverse toward the first hit, but print each character 
+      (UNCHANGED) to output. This maintains pcLine in all cases where 
+      pcFrom does NOT occur. If search hit was NULL, this will end up
+      printing up until the end of pcLine. */
       while (pcLine != searchHit && *pcLine != '\0') {
          printf("%c", *pcLine);
          pcLine++;
       }
+
+      /* Once the search hit is found, print pcTo in place of pcFrom. 
+      Skip pcLine ahead by the length of pcFrom in order to repeat the
+      search for the next occurance without printing pcFrom. Increment 
+      the counter because the search hit was a success and a replacment
+      was made. */
       if (pcLine == searchHit) {
          printf("%s", pcTo);
          pcLine += uFromLen;
@@ -47,6 +70,7 @@ static size_t replaceAndWrite(const char *pcLine,
       }
    }
 
+   /* Return the number of replacements made within pcLine. */
    return counter;
 }
 
