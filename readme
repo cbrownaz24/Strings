@@ -2,8 +2,8 @@ Assignment 2 readme File
 
 ------------------------------------------------------------------------
 What is your name?
-Connor Brown
 
+    Connor Brown
 
 ------------------------------------------------------------------------
 What authorized sources of information did you use to complete the
@@ -12,7 +12,18 @@ in the "Policies" web page (also available on armlab in the file
 ~cos217/AuthorizedSourcesList ) to this section of the readme file,
 and edit it as appropriate.
 
+    The course's lectures.
 
+    The course's website.
+
+    Documents that are referenced directly by the course's website. Such 
+    documents include the course's lecture slides and precept handouts.
+
+    The course's textbooks.
+
+    The man pages on the armlab cluster.
+
+    The course's current staff members outside of class time through Ed.
 
 ------------------------------------------------------------------------
 What unauthorized sources of information did you use to complete the
@@ -26,20 +37,21 @@ interaction, may additionally require the interaction being reported
 to the Committee on Discipline. Write "None" if you used no
 unauthorized sources of information.
 
-None
+    None
 
 ------------------------------------------------------------------------
 What is your assessment of the assignment? Was it helpful? Was it fun?
 
-This assignment was helpful in reinforcing my understanding about how
-strings are handled in C; however, it wasn't particularly fun.
+    This assignment was helpful in reinforcing my understanding about 
+    how strings are handled in C. It was fun to implement common string 
+    methods from scratch.
 
 ------------------------------------------------------------------------
 (optional) What information can you provide about your submission that
 will help your grader to grade it in the most favorable light? In
 particular, what bugs are in your submission?
 
-No known bugs. 
+    No known bugs. 
 
 ------------------------------------------------------------------------
 What warnings does splint generate on stra.c, and what are your
@@ -47,7 +59,7 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
-
+    None.
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on stra.c, and what are your
@@ -55,7 +67,7 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
-
+    None.
 
 ------------------------------------------------------------------------
 What warnings does splint generate on strp.c, and what are your
@@ -63,7 +75,7 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
-
+    None.
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on strp.c, and what are your
@@ -71,7 +83,7 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
-
+    None.
 
 ------------------------------------------------------------------------
 What warnings does splint generate on replace.c, and what are your
@@ -79,7 +91,7 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
-
+    None.
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on replace.c, and what are your
@@ -87,13 +99,20 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
-
+    None.
 
 ------------------------------------------------------------------------
 Is it possible for Str_copy or Str_concat to call assert to verify
 that the destination memory area specified by the caller is large
 enough? Explain.
 
-
+    With our implementations of these methods, no, it is not possible.
+    This is because although we know the length of the destination 
+    string, this length is limited to the first encountering of a null
+    terminating character. The almost-fixes to this problem are the 
+    strncpy and strncat functions. These functions have the added 
+    parameter, n, which limits the number of bytes manipulated in 
+    memory. However, with no way of assessing whether a memory unit is 
+    large enough, the above question cannot be done.
 
 ------------------------------------------------------------------------
