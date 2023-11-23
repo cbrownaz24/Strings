@@ -1,3 +1,3 @@
-# Assignment 2 - Strings
+# Strings
 
-This repository contains the provided files for Assignment 2.
+This project replicates many of the common string-processing functions found in C, using both array and pointer approaches.
